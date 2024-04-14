@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - /data
+    environment:
+      POSTGRES_PASSWORD: "0510"
+    ports:
+      - "5432:5432"
