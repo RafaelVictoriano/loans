@@ -12,10 +12,11 @@ public class LoansGuaranteedStrategy implements LoansStrategy {
 
     @Override
     public boolean isApply(CustomerDomain customerDomain) {
-        return isIncomeGreaterThanMin(customerDomain)
-                || (customerDomain.income().compareTo(BigDecimal.valueOf(5000)) <= 0
-                && customerDomain.age() < 30
-                && customerDomain.location().equalsIgnoreCase("SP"));
+        return isIncomeLessThanThreeThousand(customerDomain.income())
+                || (isIncomeEqualsOrLessThanFiveThousand(customerDomain.income())
+                && isAgeLessThanThirty(customerDomain.age())
+                && isLocationIsSP(customerDomain.location()));
+
     }
 
 
@@ -24,7 +25,19 @@ public class LoansGuaranteedStrategy implements LoansStrategy {
         return LoanTypes.GUARANTEED;
     }
 
-    private static boolean isIncomeGreaterThanMin(CustomerDomain customerDomain) {
-        return customerDomain.income().compareTo(BigDecimal.valueOf(3000)) < 0;
+    private static boolean isIncomeLessThanThreeThousand(BigDecimal income) {
+        return income.compareTo(BigDecimal.valueOf(3000)) < 0;
+    }
+
+    private static boolean isIncomeEqualsOrLessThanFiveThousand(BigDecimal income) {
+        return income.compareTo(BigDecimal.valueOf(5000)) <= 0;
+    }
+
+    private static boolean isAgeLessThanThirty(Integer age) {
+        return age < 30;
+    }
+
+    private static boolean isLocationIsSP(String location) {
+        return location.equalsIgnoreCase("SP");
     }
 }
