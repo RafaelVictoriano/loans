@@ -1,6 +1,6 @@
 package com.br.loans.adapters.inbound.entity;
 
-import com.br.loans.adapters.enumeration.LoanTypes;
+import com.br.loans.application.core.domain.LoanTypes;
 import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 

@@ -48,4 +48,11 @@ public class HandleException {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, exception.getMessage()));
     }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ProblemDetail> handlingException(final Exception exception) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, "Erro interno"));
+    }
 }

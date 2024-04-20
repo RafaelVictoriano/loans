@@ -1,6 +1,6 @@
 package com.br.loans.application.core.service;
 
-import com.br.loans.adapters.enumeration.LoanTypes;
+import com.br.loans.application.core.domain.LoanTypes;
 import com.br.loans.adapters.inbound.entity.LoansEntity;
 import com.br.loans.adapters.outbound.dto.LoansDTO;
 import com.br.loans.adapters.outbound.repository.LoansRepository;
@@ -43,13 +43,13 @@ public class LoansService implements LoansPort {
     }
 
     private List<LoansEntity> getLoansByLoansTypes(final Collection<LoanTypes> loanTypes) {
-        final var loasnEntities = loansRepository.findByLoansTypeIn(loanTypes);
-        log.info("Loans types retrieved, loansTypes:{}", loasnEntities);
+        final var loansEntities = loansRepository.findByLoansTypeIn(loanTypes);
+        log.info("Loans types retrieved, loansTypes:{}", loansEntities);
 
-        if (loasnEntities.isEmpty()) {
+        if (loansEntities.isEmpty()) {
             throw new NotFoundException("Loans types not found");
         }
-        return loasnEntities;
+        return loansEntities;
     }
 
 

@@ -1,6 +1,6 @@
 package com.br.loans.adapters.outbound.repository;
 
-import com.br.loans.adapters.enumeration.LoanTypes;
+import com.br.loans.application.core.domain.LoanTypes;
 import com.br.loans.adapters.inbound.entity.LoansEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 

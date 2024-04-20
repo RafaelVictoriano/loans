@@ -1,6 +1,6 @@
 package com.br.loans.application.core.service;
 
-import com.br.loans.adapters.enumeration.LoanTypes;
+import com.br.loans.application.core.domain.LoanTypes;
 import com.br.loans.adapters.inbound.entity.LoansEntity;
 import com.br.loans.adapters.outbound.dto.LoansDTO;
 import com.br.loans.adapters.outbound.repository.LoansRepository;

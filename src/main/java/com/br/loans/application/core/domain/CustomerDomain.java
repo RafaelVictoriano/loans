@@ -8,4 +8,5 @@ public record CustomerDomain(Integer age,
                              BigDecimal income,
                              String location
 ) {
+
 }
